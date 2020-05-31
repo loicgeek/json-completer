@@ -1,0 +1,52 @@
+{
+  "name": "json-completer",
+  "displayName": "Json Completer",
+  "description": "Json Completer is a VS Code plugin that allow auto copletion for nested objects in json files",
+  "version": "0.0.1",
+  "author": {
+    "name": "loicgeek",
+    "email": "loic.ngou98@gmail.com"
+  },
+  "keywords": [
+    "auto",
+    "auto-completion",
+    "json",
+    "object"
+  ],
+  "homepage": "https://github.com/loicgeek/json-completer",
+  "engines": {
+    "vscode": "^1.45.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:flut-lang.helloWorld",
+    "onLanguage:dart"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "flut-lang.helloWorld",
+        "title": "Hello World"
+      }
+    ]
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "node ./test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.45.0",
+    "@types/glob": "^7.1.1",
+    "@types/mocha": "^7.0.2",
+    "@types/node": "^13.11.0",
+    "eslint": "^6.8.0",
+    "glob": "^7.1.6",
+    "mocha": "^7.1.2",
+    "typescript": "^3.8.3",
+    "vscode-test": "^1.3.0"
+  }
+}
