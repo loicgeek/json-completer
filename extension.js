@@ -71,6 +71,24 @@ const loadData = () => {
   return KEYS_LIST;
 };
 
+//this method is called when user save a file
+// it check whether it is config or model file, in that case,
+// we reload data
+vscode.workspace.onDidSaveTextDocument((document) => {
+  const absolute_model_path = path.join(
+    vscode.workspace.rootPath,
+    CONFIG["model_path"]
+  );
+
+  if (
+    document.fileName == CONFIG_PATH ||
+    document.fileName == absolute_model_path
+  ) {
+    loadConfig();
+    loadData();
+  }
+});
+
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 
