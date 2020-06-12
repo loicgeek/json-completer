@@ -7,6 +7,7 @@ Json-completer is a vscode extension that allows developper to autocomplete nest
 Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
 
 \!\[feature X\]\(images/feature-x.png\)
+[![Watch the video](https://img.youtube.com/vi/1-2_dN9wtNY/maxresdefault.jpg)](https://youtu.be/1-2_dN9wtNY)
 
 ## Requirements
 
@@ -15,7 +16,8 @@ Describe specific features of your extension including screenshots of your exten
 `{ "model_path":"locales/locale_en.json", "accepted_functions":["AllTranslation.text","translate"] //optional }`
 
 > `accepted_functions` parameter let user choose which functions he want this plugin to suggest json completion for.
-> activate the extension by running the command json-completer.activate
+
+## activate the extension by running the command "json-completer.activate"
 
 ---
 
