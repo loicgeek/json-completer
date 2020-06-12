@@ -22,15 +22,14 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:flut-lang.helloWorld",
-    "onLanguage:dart"
+    "onCommand:json-completer.activate"
   ],
   "main": "./extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "flut-lang.helloWorld",
-        "title": "Hello World"
+        "command": "json-completer.activate",
+        "title": "json completer"
       }
     ]
   },

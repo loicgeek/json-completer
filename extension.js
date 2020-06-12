@@ -36,6 +36,7 @@ const loadConfig = () => {
   });
   try {
     CONFIG = JSON.parse(rawdata);
+    vscode.window.showInformationMessage("jsoncompleter config loaded");
   } catch (e) {
     vscode.window.showErrorMessage(e.toString());
     return;
@@ -67,7 +68,7 @@ const loadData = () => {
     encoding: "utf-8",
   });
   KEYS_LIST = getObjectKeys(JSON.parse(jsonData));
-  console.log("data loaded");
+  vscode.window.showInformationMessage("Data loaded");
   return KEYS_LIST;
 };
 
@@ -95,11 +96,8 @@ vscode.workspace.onDidSaveTextDocument((document) => {
 /**
  * @param {vscode.ExtensionContext} context
  */
-function activate(context) {
+async function activate(context) {
   console.log("json-completer successfully activated");
-  // Use the console to output diagnostic information (console.log) and errors (console.error)
-  // This line of code will only be executed once when your extension is activated
-
   loadConfig();
   loadData();
   let jsonCompleterProvider = vscode.languages.registerCompletionItemProvider(
@@ -144,31 +142,13 @@ function activate(context) {
     ".",
     '"',
     "'"
-
-    // triggered whenever a '.' is being typed
+  );
+  let activationCommand = vscode.commands.registerCommand(
+    "json-completer.activate",
+    () => {}
   );
 
-  let configChangedProvider = vscode.languages.registerCompletionItemProvider(
-    {
-      pattern: "**/" + CONFIG_FILE_NAME,
-    },
-    {
-      async provideCompletionItems(document, position) {
-        var line = document.lineAt(position);
-        const linePrefix = line.text.substr(0, position.character);
-        console.log("configuration changed");
-        loadConfig();
-        loadData();
-        return undefined;
-      },
-    },
-    ":",
-    "'",
-    '"',
-    ","
-  );
-
-  context.subscriptions.push(jsonCompleterProvider, configChangedProvider);
+  context.subscriptions.push(jsonCompleterProvider, activationCommand);
 }
 exports.activate = activate;
 
