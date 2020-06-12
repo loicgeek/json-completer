@@ -15,6 +15,9 @@
     "object"
   ],
   "homepage": "https://github.com/loicgeek/json-completer",
+  "repository": {
+    "url": "https://github.com/loicgeek/json-completer"
+  },
   "engines": {
     "vscode": "^1.45.0"
   },
