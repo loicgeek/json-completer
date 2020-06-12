@@ -2,7 +2,7 @@
   "name": "json-completer",
   "displayName": "Json Completer",
   "description": "Json Completer is a VS Code plugin that allow auto copletion for nested objects in json files",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": {
     "name": "loicgeek",
     "email": "loic.ngou98@gmail.com"
